@@ -1,2 +1,2 @@
-# Face Your Fear VR
+# Face Your Fear
 Team Fear the Turtle
