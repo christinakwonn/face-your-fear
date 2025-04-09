@@ -4,10 +4,6 @@ using UnityEngine.InputSystem;
 public class FirstPersonControllerScript : MonoBehaviour
 {
     float movementSpeed = 5;
-    void Start()
-    {
-        
-    }
 
     void Update()
     {
