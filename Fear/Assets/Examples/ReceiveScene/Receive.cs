@@ -4,24 +4,9 @@ using UnityEngine;
 
 public class Receive : MonoBehaviour
 {
-    public static Receive instance { get; private set; }
-
     [SerializeField] private OSCReceiver receiver;
-    [SerializeField] private TMP_Text display;
 
     public static float gammaValue;
-
-    private void Awake()
-    {
-        if (instance != null && instance != this)
-        {
-            Destroy(gameObject); 
-            return;
-        }
-
-        instance = this;
-        DontDestroyOnLoad(gameObject); 
-    }
 
     void Start()
     {
