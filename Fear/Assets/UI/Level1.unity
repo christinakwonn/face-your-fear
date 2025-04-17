@@ -1160,10 +1160,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 1499066562}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5d9f74ab856888b41a4db18986f05a67, type: 3}
+  m_Script: {fileID: 11500000, guid: 3f20ee4b14da8c5499a93dd3c4d6df2e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cameraTransform: {fileID: 351706626}
+  cameraTransform: {fileID: 363144572}
   offset: {x: 0, y: -0.3, z: 1.5}
   followSpeed: 5
 --- !u!1 &1703155415
