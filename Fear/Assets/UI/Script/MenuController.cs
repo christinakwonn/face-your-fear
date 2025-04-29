@@ -8,9 +8,9 @@ public class MenuController : MonoBehaviour
         SceneManager.LoadScene(Level1);
     }
 
-    public void OpenTutorial()
+    public void OpenTutorial(string TutorialScene)
     {
-        SceneManager.LoadScene("TutorialScene");
+        SceneManager.LoadScene(TutorialScene);
     }
 
     public void ExitGame()
