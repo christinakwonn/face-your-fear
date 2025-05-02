@@ -4,6 +4,7 @@ public class BridgeScript : MonoBehaviour
 {
     [SerializeField] float bridgeSwayMultiplier;
     Vector3 startingPosition;
+    public float gammaValue;
     void Start()
     {
         startingPosition = transform.position;
@@ -12,7 +13,8 @@ public class BridgeScript : MonoBehaviour
 
     void Update()
     {
-        float swayAmount = Mathf.Sin(Time.time) * Receive.gammaValue * bridgeSwayMultiplier;
+        gammaValue = Receive.gammaValue;
+        float swayAmount = Mathf.Sin(Time.time) * gammaValue * bridgeSwayMultiplier;
         transform.position = startingPosition + new Vector3(swayAmount, 0f, 0f);
     }
 }
