@@ -14,6 +14,18 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/UI/TutorialScene.unity
     guid: a66e931d92e10bf45b42606fc9a48040
+  - enabled: 1
+    path: Assets/Scenes/Level2.unity
+    guid: a2993c5d880882f4f8b0da3bcd0477b0
+  - enabled: 1
+    path: Assets/Scenes/EndScene.unity
+    guid: c7fe9b1a26283f9408cff04c2b3ecca1
+  - enabled: 1
+    path: Assets/Scenes/Level1.unity
+    guid: 6e7a847a1818b2947a64ea5beb41a5a0
+  - enabled: 1
+    path: Assets/Scenes/StartScene.unity
+    guid: 8d2b1b4101bdf4e70af78180dbf4c029
   m_configObjects:
     Unity.XR.Oculus.Settings: {fileID: 11400000, guid: bfa1182bd221b4ca89619141f66f1260, type: 2}
     Unity.XR.WindowsMR.Settings: {fileID: 11400000, guid: dc5a169419fa04987b057f65238cf3ba, type: 2}
