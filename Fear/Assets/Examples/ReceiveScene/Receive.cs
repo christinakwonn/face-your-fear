@@ -16,7 +16,7 @@ public class Receive : MonoBehaviour
 
     protected void MessageReceived(OSCMessage message)
     {
-        gammaValue = message.Values[0].FloatValue;
+        gammaValue = message.Values[0].FloatValue / 1000000000;
         //display.text = message.Values[0].FloatValue.ToString();
         // print($"Message Received : {message.Values[0].FloatValue}" );
         //print($"Message Received : {message}" );
