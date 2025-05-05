@@ -1,7 +1,6 @@
 ﻿#pragma warning disable CS0618 // obsolete
 #pragma warning disable CS0672 // overrides obsolete
 
-
 using UnityEngine;
 using UnityEngine.Rendering;
 using UnityEngine.Rendering.Universal;
@@ -10,46 +9,42 @@ public class Water_Volume : ScriptableRendererFeature
 {
     class CustomRenderPass : ScriptableRenderPass
     {
+        public RTHandle source;
+
         private Material _material;
 
-        private RTHandle sourceHandle;
         private RTHandle tempRenderTarget;
-        private RTHandle tempRenderTarget2;
 
         public CustomRenderPass(Material mat)
         {
             _material = mat;
-        }
 
-        public void SetSource(RTHandle handle)
-        {
-            sourceHandle = handle;
-        }
-
-        public override void Configure(CommandBuffer cmd, RenderTextureDescriptor cameraTextureDescriptor)
-        {
-            tempRenderTarget = RTHandles.Alloc(cameraTextureDescriptor, name: "_TemporaryColourTexture");
-            tempRenderTarget2 = RTHandles.Alloc(cameraTextureDescriptor, name: "_TemporaryDepthTexture");
+            // Criação do RTHandle para os render targets temporários
+            tempRenderTarget = RTHandles.Alloc("_TemporaryColourTexture", name: "_TemporaryColourTexture");
         }
 
         public override void Execute(ScriptableRenderContext context, ref RenderingData renderingData)
         {
             if (renderingData.cameraData.cameraType != CameraType.Reflection)
             {
-                CommandBuffer commandBuffer = CommandBufferPool.Get("WaterVolumePass");
+                CommandBuffer commandBuffer = CommandBufferPool.Get();
 
-                Blit(commandBuffer, sourceHandle, tempRenderTarget, _material);
-                Blit(commandBuffer, tempRenderTarget, sourceHandle);
+                // Configurar o Blit para usar RTHandles
+                Blitter.BlitCameraTexture(commandBuffer, source, tempRenderTarget, _material, 0);
+                Blitter.BlitCameraTexture(commandBuffer, tempRenderTarget, source);
 
                 context.ExecuteCommandBuffer(commandBuffer);
                 CommandBufferPool.Release(commandBuffer);
             }
         }
 
-        public override void FrameCleanup(CommandBuffer cmd)
+        public override void OnCameraCleanup(CommandBuffer cmd)
         {
-            RTHandles.Release(tempRenderTarget);
-            RTHandles.Release(tempRenderTarget2);
+            // Limpeza dos RTHandles
+            if (tempRenderTarget != null)
+            {
+                tempRenderTarget.Release();
+            }
         }
     }
 
@@ -61,6 +56,7 @@ public class Water_Volume : ScriptableRendererFeature
     }
 
     public _Settings settings = new _Settings();
+
     CustomRenderPass m_ScriptablePass;
 
     public override void Create()
@@ -71,12 +67,15 @@ public class Water_Volume : ScriptableRendererFeature
         }
 
         m_ScriptablePass = new CustomRenderPass(settings.material);
+
+        // Configurar o evento de renderização
         m_ScriptablePass.renderPassEvent = settings.renderPass;
     }
 
     public override void AddRenderPasses(ScriptableRenderer renderer, ref RenderingData renderingData)
     {
-        m_ScriptablePass.SetSource(renderer.cameraColorTargetHandle);
+        // Usar cameraColorTargetHandle em vez de cameraColorTarget
+        m_ScriptablePass.source = renderer.cameraColorTargetHandle;
         renderer.EnqueuePass(m_ScriptablePass);
     }
 }
