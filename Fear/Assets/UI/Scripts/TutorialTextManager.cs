@@ -1,4 +1,4 @@
-using System.Collections;
+ï»¿using System.Collections;
 using UnityEngine;
 using TMPro;
 using UnityEngine.UI;
@@ -6,8 +6,11 @@ using UnityEngine.UI;
 public class TutorialTextManager : MonoBehaviour
 {
     [Header("UI Elements")]
-    public TextMeshProUGUI tutorialText;
+    public GameObject textPanel;
     public CanvasGroup textGroup;
+    public TextMeshProUGUI tutorialText;
+    public GameObject stressMeterUI;
+    public GameObject continueButton;
 
     [Header("Timing")]
     public float fadeDuration = 1f;
@@ -34,7 +37,23 @@ public class TutorialTextManager : MonoBehaviour
             yield return StartCoroutine(ShowText(line));
         }
 
-        // You can trigger gameplay here, like enabling controls or switching scenes
+        // Fade out text panel
+        yield return StartCoroutine(FadeCanvasGroup(textGroup, false));
+        textPanel.SetActive(false);
+
+        // Show stress meter
+        stressMeterUI.SetActive(true);
+
+        // Show stress explanation message
+        tutorialText.text = "This is your stress meter. Keep it low to stay in control.";
+        textPanel.SetActive(true);
+        yield return StartCoroutine(FadeCanvasGroup(textGroup, true));
+        yield return new WaitForSeconds(displayDuration);
+        yield return StartCoroutine(FadeCanvasGroup(textGroup, false));
+        textPanel.SetActive(false);
+
+        // Show continue button
+        continueButton.SetActive(true);
     }
 
     IEnumerator ShowText(string line)
@@ -48,9 +67,9 @@ public class TutorialTextManager : MonoBehaviour
             yield return null;
         }
 
-        textGroup.alpha = 1;
+        textGroup.alpha = 1f;
 
-        // Play audio + optional haptics depending on content
+        // Play sound & feedback
         TriggerAudioAndFeedback(line);
 
         yield return new WaitForSeconds(displayDuration);
@@ -62,28 +81,45 @@ public class TutorialTextManager : MonoBehaviour
             yield return null;
         }
 
-        textGroup.alpha = 0;
+        textGroup.alpha = 0f;
+    }
+
+    IEnumerator FadeCanvasGroup(CanvasGroup group, bool fadeIn)
+    {
+        float target = fadeIn ? 1f : 0f;
+        float start = group.alpha;
+        float time = 0f;
+
+        while (time < fadeDuration)
+        {
+            group.alpha = Mathf.Lerp(start, target, time / fadeDuration);
+            time += Time.deltaTime;
+            yield return null;
+        }
+
+        group.alpha = target;
     }
 
     void TriggerAudioAndFeedback(string line)
     {
-        if (line.ToLower().Contains("breathing"))
+        string lowerLine = line.ToLower();
+
+        if (lowerLine.Contains("breathing"))
         {
-            audioSource.PlayOneShot(calmSound);
+            audioSource?.PlayOneShot(calmSound);
         }
-        else if (line.ToLower().Contains("fear"))
+        else if (lowerLine.Contains("fear") || lowerLine.Contains("stress"))
         {
-            audioSource.PlayOneShot(stressSound);
+            audioSource?.PlayOneShot(stressSound);
             SendHaptic();
         }
-        else if (line.ToLower().Contains("danger"))
+        else if (lowerLine.Contains("danger"))
         {
-            audioSource.PlayOneShot(dangerSound);
+            audioSource?.PlayOneShot(dangerSound);
             SendStrongHaptic();
         }
     }
 
-    // Placeholder — replace with XR haptic calls if using XR Toolkit
     void SendHaptic()
     {
         Debug.Log("Light Haptic Triggered");
