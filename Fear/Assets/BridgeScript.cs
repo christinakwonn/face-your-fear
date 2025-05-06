@@ -1,5 +1,5 @@
 using UnityEngine;
-
+using UnityEngine.SceneManagement;
 public class BridgeScript : MonoBehaviour
 {
     [SerializeField] GameObject playerObj;
@@ -16,12 +16,35 @@ public class BridgeScript : MonoBehaviour
     float gammaValueToLerpTo = 0;
     bool lerpComplete = true;
 
+    float timePassed = 0;
+    [SerializeField] float totalTimeToCross = 90f;
+    [SerializeField] float bridgeSinkMultiplier = 2f;
+
+    float bridgeSinkNum = 0f;
+    [SerializeField] StressMeter stressMeterScript; 
+    
+    float defaultPlayerYLevel;
+
+    [Header("Bridge will start swaying a lot more when gamma goes over this value:")]
+    [SerializeField] float bridgeSwayThreshold = 3f;
+    [Header("Stress meter will start to fill up when gamma goes over this value:")]
+    [SerializeField] float stressMeterIncreaseThreshold = 6f;
+
+    [Header("Stress meter increase speed:")]
+    [SerializeField] float stressMeterIncreaseMultiplier = 1;
+    [Header("Stress meter decrease speed:")]
+    [SerializeField] float stressMeterDecreaseMultiplier = 1;
+
 
     private void Start() {
-        //playerObj.transform.position = sceneObj.transform.position;
         centralBridgePosition = transform.position;
         currentGammaValue = gammaValueLerp;
         gammaValueToLerpTo = Receive.gammaValue;
+        defaultPlayerYLevel = playerObj.transform.position.y;
+
+        if (stressMeterScript == null) stressMeterScript = FindObjectOfType<StressMeter>();
+
+        stressMeterScript.stressLevel = 0;
     }
 
     private void Update() {
@@ -38,13 +61,30 @@ public class BridgeScript : MonoBehaviour
                 gammaValueTimer = 0;
                 currentGammaValue = gammaValueLerp;
                 gammaValueToLerpTo = Receive.gammaValue;
-                if (gammaValueToLerpTo < 3.7f) gammaValueToLerpTo = 0.5f; // 3.7 seems like a "baseline" value
-                Debug.Log("Current sway value at: " + gammaValueToLerpTo);
+                if (gammaValueToLerpTo < bridgeSwayThreshold) gammaValueToLerpTo = 0.5f; 
             }
         }
 
         float swayAmount = Mathf.Sin(Time.time) * gammaValueLerp * bridgeSwayMultiplier;
         transform.position = centralBridgePosition + new Vector3(swayAmount, 0, 0);
-        playerObj.transform.position = new Vector3(centralBridgePosition.x, playerObj.transform.position.y, playerObj.transform.position.z) + new Vector3(swayAmount, 0, 0);
+        playerObj.transform.position = new Vector3(centralBridgePosition.x, defaultPlayerYLevel - bridgeSinkNum * bridgeSinkMultiplier, playerObj.transform.position.z) + new Vector3(swayAmount, 0, 0);
+
+        if (timePassed < totalTimeToCross / 2f){
+            bridgeSinkNum = Mathf.Lerp(0, 1, timePassed / (totalTimeToCross / 2f));
+        }
+        else if (timePassed > totalTimeToCross / 2f){
+            bridgeSinkNum = Mathf.Lerp(1, 0, (timePassed - totalTimeToCross / 2f) / (totalTimeToCross / 2f));
+        }
+
+        timePassed += Time.deltaTime;
+
+        if (Receive.gammaValue > stressMeterIncreaseThreshold) {
+            stressMeterScript.stressLevel += stressMeterIncreaseMultiplier * Time.deltaTime;
+            if (stressMeterScript.stressLevel >= 1) SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        }
+        else if (stressMeterScript.stressLevel > 0)
+            stressMeterScript.stressLevel -= stressMeterDecreaseMultiplier * Time.deltaTime;
+        
+        Debug.Log(Receive.gammaValue);
     }
 }
