@@ -221,6 +221,11 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 4203849742021558381, guid: 807075697be3742bcbe677d41270fd26, type: 3}
   m_PrefabInstance: {fileID: 5807443479756525485}
   m_PrefabAsset: {fileID: 0}
+--- !u!198 &236851320 stripped
+ParticleSystem:
+  m_CorrespondingSourceObject: {fileID: 6364929577006608109, guid: fa5c507e4ada2984bb4e3cdea9536047, type: 3}
+  m_PrefabInstance: {fileID: 153927181}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &290546058
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -443,21 +448,53 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 155157694}
     - target: {fileID: 7654337773512924082, guid: 9d97b019c996d42f89167c5e8939e2f3, type: 3}
+      propertyPath: redFogColor.a
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7654337773512924082, guid: 9d97b019c996d42f89167c5e8939e2f3, type: 3}
+      propertyPath: redFogColor.b
+      value: 0.25
+      objectReference: {fileID: 0}
+    - target: {fileID: 7654337773512924082, guid: 9d97b019c996d42f89167c5e8939e2f3, type: 3}
+      propertyPath: redFogColor.g
+      value: 0.25
+      objectReference: {fileID: 0}
+    - target: {fileID: 7654337773512924082, guid: 9d97b019c996d42f89167c5e8939e2f3, type: 3}
+      propertyPath: redFogColor.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7654337773512924082, guid: 9d97b019c996d42f89167c5e8939e2f3, type: 3}
+      propertyPath: defaultFogColor.a
+      value: 0.5882353
+      objectReference: {fileID: 0}
+    - target: {fileID: 7654337773512924082, guid: 9d97b019c996d42f89167c5e8939e2f3, type: 3}
+      propertyPath: defaultFogColor.b
+      value: 0.8392157
+      objectReference: {fileID: 0}
+    - target: {fileID: 7654337773512924082, guid: 9d97b019c996d42f89167c5e8939e2f3, type: 3}
+      propertyPath: defaultFogColor.g
+      value: 0.8392157
+      objectReference: {fileID: 0}
+    - target: {fileID: 7654337773512924082, guid: 9d97b019c996d42f89167c5e8939e2f3, type: 3}
+      propertyPath: defaultFogColor.r
+      value: 0.8392157
+      objectReference: {fileID: 0}
+    - target: {fileID: 7654337773512924082, guid: 9d97b019c996d42f89167c5e8939e2f3, type: 3}
       propertyPath: stressMeterScript
       value: 
       objectReference: {fileID: 617999489}
     - target: {fileID: 7654337773512924082, guid: 9d97b019c996d42f89167c5e8939e2f3, type: 3}
-      propertyPath: stressMeterIncreaseThreshold
-      value: 3.5
+      propertyPath: fogParticles.Array.size
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 7654337773512924082, guid: 9d97b019c996d42f89167c5e8939e2f3, type: 3}
-      propertyPath: stressMeterDecreaseMultiplier
-      value: 0.08
-      objectReference: {fileID: 0}
+      propertyPath: 'fogParticles.Array.data[0]'
+      value: 
+      objectReference: {fileID: 236851320}
     - target: {fileID: 7654337773512924082, guid: 9d97b019c996d42f89167c5e8939e2f3, type: 3}
-      propertyPath: stressMeterIncreaseMultiplier
-      value: 0.05
-      objectReference: {fileID: 0}
+      propertyPath: 'fogParticles.Array.data[1]'
+      value: 
+      objectReference: {fileID: 1578887124}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1220,6 +1257,11 @@ MonoBehaviour:
   m_RayInteractorChanged:
     m_PersistentCalls:
       m_Calls: []
+--- !u!198 &1578887124 stripped
+ParticleSystem:
+  m_CorrespondingSourceObject: {fileID: 6364929577006608109, guid: fa5c507e4ada2984bb4e3cdea9536047, type: 3}
+  m_PrefabInstance: {fileID: 290546058}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &2071575123
 PrefabInstance:
   m_ObjectHideFlags: 0

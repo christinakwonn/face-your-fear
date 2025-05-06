@@ -53,12 +53,48 @@ PrefabInstance:
       value: terrainGroup
       objectReference: {fileID: 0}
     - target: {fileID: 8231563103314119419, guid: f484c129275bb164e8565108c6f7e7c6, type: 3}
+      propertyPath: redFogColor.a
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8231563103314119419, guid: f484c129275bb164e8565108c6f7e7c6, type: 3}
+      propertyPath: redFogColor.b
+      value: 0.25
+      objectReference: {fileID: 0}
+    - target: {fileID: 8231563103314119419, guid: f484c129275bb164e8565108c6f7e7c6, type: 3}
+      propertyPath: redFogColor.g
+      value: 0.25
+      objectReference: {fileID: 0}
+    - target: {fileID: 8231563103314119419, guid: f484c129275bb164e8565108c6f7e7c6, type: 3}
+      propertyPath: redFogColor.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8231563103314119419, guid: f484c129275bb164e8565108c6f7e7c6, type: 3}
+      propertyPath: defaultFogColor.a
+      value: 0.5882353
+      objectReference: {fileID: 0}
+    - target: {fileID: 8231563103314119419, guid: f484c129275bb164e8565108c6f7e7c6, type: 3}
+      propertyPath: defaultFogColor.b
+      value: 0.8392157
+      objectReference: {fileID: 0}
+    - target: {fileID: 8231563103314119419, guid: f484c129275bb164e8565108c6f7e7c6, type: 3}
+      propertyPath: defaultFogColor.g
+      value: 0.8392157
+      objectReference: {fileID: 0}
+    - target: {fileID: 8231563103314119419, guid: f484c129275bb164e8565108c6f7e7c6, type: 3}
+      propertyPath: defaultFogColor.r
+      value: 0.8392157
+      objectReference: {fileID: 0}
+    - target: {fileID: 8231563103314119419, guid: f484c129275bb164e8565108c6f7e7c6, type: 3}
       propertyPath: bridgeSinkMultiplier
       value: 25
       objectReference: {fileID: 0}
     - target: {fileID: 8231563103314119419, guid: f484c129275bb164e8565108c6f7e7c6, type: 3}
       propertyPath: bridgeSwayMultiplier
       value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 8231563103314119419, guid: f484c129275bb164e8565108c6f7e7c6, type: 3}
+      propertyPath: fogParticles.Array.size
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 8231563103314119419, guid: f484c129275bb164e8565108c6f7e7c6, type: 3}
       propertyPath: stressMeterIncreaseThreshold
