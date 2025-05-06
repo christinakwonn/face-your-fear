@@ -39,6 +39,11 @@ public class BridgeScript : MonoBehaviour
     [SerializeField] float stressMeterDecreaseMultiplier = 1;
     [SerializeField] GameObject redScreenObj;
 
+    [SerializeField] ParticleSystem[] fogParticles;
+
+    [SerializeField] Color defaultFogColor;
+    [SerializeField] Color redFogColor;
+
     private void Start() {
         centralBridgePosition = transform.position;
         currentGammaValue = gammaValueLerp;
@@ -53,6 +58,11 @@ public class BridgeScript : MonoBehaviour
 
         if (redScreenObj != null)
             redScreenObj.SetActive(false);
+
+        if (fogParticles[0] != null) {
+            var mainModule = fogParticles[0].main;
+            defaultFogColor = mainModule.startColor.color;
+        } 
     }
 
     private void Update() {
@@ -64,7 +74,7 @@ public class BridgeScript : MonoBehaviour
             centralBridgePosition -= new Vector3(0, 0, forwardMovementMultiplier * Time.deltaTime);
         }
 
-        // when player is nearing end, stop swaying the bridge
+        // stop swaying the bridge when player is at the end
         if (timePassed > totalTimeToCross - 5) gammaValueToLerpTo = 0;
 
         if (Time.time > 2){
@@ -77,6 +87,12 @@ public class BridgeScript : MonoBehaviour
                 gammaValueTimer = 0;
                 currentGammaValue = gammaValueLerp;
                 gammaValueToLerpTo = Receive.gammaValue;
+
+                if (timePassed > totalTimeToCross - (totalTimeToCross / 3)){
+                    gammaValueToLerpTo /= 5; // reduce sway as player is nearing end
+                    Debug.Log("last third");
+                }
+
                 if (gammaValueToLerpTo < bridgeSwayThreshold) gammaValueToLerpTo = 0.5f; 
             }
         }
@@ -95,7 +111,8 @@ public class BridgeScript : MonoBehaviour
 
         timePassed += Time.deltaTime;
 
-        if (Receive.gammaValue > stressMeterIncreaseThreshold) {
+        if (Receive.gammaValue > stressMeterIncreaseThreshold) // stress meter functionality
+        {
             stressMeterScript.stressLevel += stressMeterIncreaseMultiplier * Time.deltaTime;
 
             //stress meter full, restart
@@ -105,9 +122,17 @@ public class BridgeScript : MonoBehaviour
                 SceneManager.LoadScene(SceneManager.GetActiveScene().name);
             }
         }
-
         else if (stressMeterScript.stressLevel > 0)
             stressMeterScript.stressLevel -= stressMeterDecreaseMultiplier * Time.deltaTime;
+
+        if (fogParticles[0] != null) // lerps fog color from white to red based on stress meter %
+        {
+            var mainModule = fogParticles[0].main;
+            mainModule.startColor = Color.Lerp(defaultFogColor, redFogColor, stressMeterScript.stressLevel);
+
+            var mainModule2 = fogParticles[1].main;
+            mainModule2.startColor = Color.Lerp(defaultFogColor, redFogColor, stressMeterScript.stressLevel);
+        }
         
         Debug.Log("Gamma: " + Receive.gammaValue);
     }
