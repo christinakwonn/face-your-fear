@@ -5,8 +5,9 @@ using UnityEngine;
 public class Receive : MonoBehaviour
 {
     [SerializeField] private OSCReceiver receiver;
+    //[SerializeField] private TMP_Text display;
 
-    public static float gammaValue;
+    public static float gammaValue = 0;
 
     void Start()
     {
@@ -15,8 +16,9 @@ public class Receive : MonoBehaviour
 
     protected void MessageReceived(OSCMessage message)
     {
-        gammaValue = message.Values[0].FloatValue / 1000000000; // sets to a normal number range
-        print($"Gamma Value : {gammaValue}" );
-        //print($"Message Received : {message.Values[0].FloatValue}" );
+        gammaValue = message.Values[0].FloatValue / 1000000000;
+        //display.text = message.Values[0].FloatValue.ToString();
+        // print($"Message Received : {message.Values[0].FloatValue}" );
+        //print($"Message Received : {message}" );
     }
 }
