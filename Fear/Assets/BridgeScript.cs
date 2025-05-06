@@ -16,12 +16,25 @@ public class BridgeScript : MonoBehaviour
     float gammaValueToLerpTo = 0;
     bool lerpComplete = true;
 
+    float timePassed = 0;
+    [SerializeField] float totalTimeToCross = 90f;
+    [SerializeField] float bridgeSinkMultiplier = 2f;
+
+    [SerializeField] float bridgeSinkNum = 0f;
+    [SerializeField] StressMeter stressMeterScript; 
+    
+    float defaultPlayerYLevel;
+
+    [SerializeField] float stressMeterFillMultiplier = 1;
+
 
     private void Start() {
-        //playerObj.transform.position = sceneObj.transform.position;
         centralBridgePosition = transform.position;
         currentGammaValue = gammaValueLerp;
         gammaValueToLerpTo = Receive.gammaValue;
+        defaultPlayerYLevel = playerObj.transform.position.y;
+
+        if (stressMeterScript == null) stressMeterScript = FindObjectOfType<StressMeter>();
     }
 
     private void Update() {
@@ -39,12 +52,22 @@ public class BridgeScript : MonoBehaviour
                 currentGammaValue = gammaValueLerp;
                 gammaValueToLerpTo = Receive.gammaValue;
                 if (gammaValueToLerpTo < 3.7f) gammaValueToLerpTo = 0.5f; // 3.7 seems like a "baseline" value
-                Debug.Log("Current sway value at: " + gammaValueToLerpTo);
+                //Debug.Log("Current sway value at: " + gammaValueToLerpTo);
             }
         }
 
         float swayAmount = Mathf.Sin(Time.time) * gammaValueLerp * bridgeSwayMultiplier;
         transform.position = centralBridgePosition + new Vector3(swayAmount, 0, 0);
-        playerObj.transform.position = new Vector3(centralBridgePosition.x, playerObj.transform.position.y, playerObj.transform.position.z) + new Vector3(swayAmount, 0, 0);
+        playerObj.transform.position = new Vector3(centralBridgePosition.x, defaultPlayerYLevel - bridgeSinkNum * bridgeSinkMultiplier, playerObj.transform.position.z) + new Vector3(swayAmount, 0, 0);
+
+        if (timePassed < totalTimeToCross / 2f){
+            bridgeSinkNum = Mathf.Lerp(0, 1, timePassed / (totalTimeToCross / 2f));
+        }
+        else if (timePassed > totalTimeToCross / 2f){
+            bridgeSinkNum = Mathf.Lerp(1, 0, (timePassed - totalTimeToCross / 2f) / (totalTimeToCross / 2f));
+        }
+
+        timePassed += Time.deltaTime;
+        Debug.Log(stressMeterScript.stressLevel);
     }
 }
