@@ -349,10 +349,6 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 617999489}
     - target: {fileID: 7654337773512924082, guid: 9d97b019c996d42f89167c5e8939e2f3, type: 3}
-      propertyPath: bridgeSinkMultiplier
-      value: 25
-      objectReference: {fileID: 0}
-    - target: {fileID: 7654337773512924082, guid: 9d97b019c996d42f89167c5e8939e2f3, type: 3}
       propertyPath: stressMeterIncreaseThreshold
       value: 3.5
       objectReference: {fileID: 0}

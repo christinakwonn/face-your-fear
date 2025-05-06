@@ -60,6 +60,18 @@ PrefabInstance:
       propertyPath: bridgeSwayMultiplier
       value: 8
       objectReference: {fileID: 0}
+    - target: {fileID: 8231563103314119419, guid: f484c129275bb164e8565108c6f7e7c6, type: 3}
+      propertyPath: stressMeterIncreaseThreshold
+      value: 3.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8231563103314119419, guid: f484c129275bb164e8565108c6f7e7c6, type: 3}
+      propertyPath: stressMeterDecreaseMultiplier
+      value: 0.08
+      objectReference: {fileID: 0}
+    - target: {fileID: 8231563103314119419, guid: f484c129275bb164e8565108c6f7e7c6, type: 3}
+      propertyPath: stressMeterIncreaseMultiplier
+      value: 0.05
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

@@ -2,6 +2,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 public class BridgeScript : MonoBehaviour
 {
+    
     [SerializeField] GameObject playerObj;
     [SerializeField] GameObject sceneObj;
     [SerializeField] float forwardMovementMultiplier = 10;
@@ -12,7 +13,7 @@ public class BridgeScript : MonoBehaviour
     float gammaValueLerp = 0;
     float gammaValueTimer = 0;
     [SerializeField] float smoothFactor = 0.25f;
-    float currentGammaValue = 0;
+
     float gammaValueToLerpTo = 0;
     bool lerpComplete = true;
 
@@ -24,6 +25,8 @@ public class BridgeScript : MonoBehaviour
     [SerializeField] StressMeter stressMeterScript; 
     
     float defaultPlayerYLevel;
+    float currentGammaValue = 0;
+    [SerializeField] float gammaValueAtThisFrame;
 
     [Header("Bridge will start swaying a lot more when gamma goes over this value:")]
     [SerializeField] float bridgeSwayThreshold = 3f;
@@ -48,8 +51,16 @@ public class BridgeScript : MonoBehaviour
     }
 
     private void Update() {
-        sceneObj.transform.position -= new Vector3(0, 0, forwardMovementMultiplier * Time.deltaTime);
-        centralBridgePosition -= new Vector3(0, 0, forwardMovementMultiplier * Time.deltaTime);
+        gammaValueAtThisFrame = Receive.gammaValue;
+
+        if (timePassed < totalTimeToCross + 3) // stop moving once crossed 
+        {
+            sceneObj.transform.position -= new Vector3(0, 0, forwardMovementMultiplier * Time.deltaTime);
+            centralBridgePosition -= new Vector3(0, 0, forwardMovementMultiplier * Time.deltaTime);
+        }
+
+        // when player is nearing end, stop swaying the bridge
+        if (timePassed > totalTimeToCross - 5) gammaValueToLerpTo = 0;
 
         if (Time.time > 2){
             if (gammaValueLerp != gammaValueToLerpTo){
@@ -67,6 +78,7 @@ public class BridgeScript : MonoBehaviour
 
         float swayAmount = Mathf.Sin(Time.time) * gammaValueLerp * bridgeSwayMultiplier;
         transform.position = centralBridgePosition + new Vector3(swayAmount, 0, 0);
+
         playerObj.transform.position = new Vector3(centralBridgePosition.x, defaultPlayerYLevel - bridgeSinkNum * bridgeSinkMultiplier, playerObj.transform.position.z) + new Vector3(swayAmount, 0, 0);
 
         if (timePassed < totalTimeToCross / 2f){
@@ -85,6 +97,6 @@ public class BridgeScript : MonoBehaviour
         else if (stressMeterScript.stressLevel > 0)
             stressMeterScript.stressLevel -= stressMeterDecreaseMultiplier * Time.deltaTime;
         
-        Debug.Log(Receive.gammaValue);
+        Debug.Log("Gamma: " + Receive.gammaValue);
     }
 }
