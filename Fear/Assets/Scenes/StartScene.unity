@@ -743,7 +743,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1692558064041178966, guid: 777aa880f955cd8499ed113cc6ac9965, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 475.76273
+      value: 473.2207
       objectReference: {fileID: 0}
     - target: {fileID: 1692558064041178966, guid: 777aa880f955cd8499ed113cc6ac9965, type: 3}
       propertyPath: m_LocalPosition.y
@@ -751,23 +751,23 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1692558064041178966, guid: 777aa880f955cd8499ed113cc6ac9965, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 610.22217
+      value: 304.51663
       objectReference: {fileID: 0}
     - target: {fileID: 1692558064041178966, guid: 777aa880f955cd8499ed113cc6ac9965, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.44740924
+      value: 0.70511854
       objectReference: {fileID: 0}
     - target: {fileID: 1692558064041178966, guid: 777aa880f955cd8499ed113cc6ac9965, type: 3}
       propertyPath: m_LocalRotation.x
-      value: -0.44740933
+      value: -0.7051186
       objectReference: {fileID: 0}
     - target: {fileID: 1692558064041178966, guid: 777aa880f955cd8499ed113cc6ac9965, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0.5475628
+      value: 0.052989278
       objectReference: {fileID: 0}
     - target: {fileID: 1692558064041178966, guid: 777aa880f955cd8499ed113cc6ac9965, type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0.5475628
+      value: 0.05298921
       objectReference: {fileID: 0}
     - target: {fileID: 1692558064041178966, guid: 777aa880f955cd8499ed113cc6ac9965, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -779,7 +779,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1692558064041178966, guid: 777aa880f955cd8499ed113cc6ac9965, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
-      value: -78.504
+      value: -171.405
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
