@@ -24,11 +24,24 @@ public class TutorialTextManager : MonoBehaviour
 
     [TextArea]
     public string[] tutorialLines;
-
+    void Awake()
+    {
+        var allCanvases = GameObject.FindObjectsByType<Canvas>(FindObjectsInactive.Include, FindObjectsSortMode.None);
+        foreach (var canvas in allCanvases)
+        {
+            canvas.worldCamera = Camera.main;
+        }
+    }
     private void Start()
     {
+        textPanel.SetActive(true);
+        stressMeterUI.SetActive(false);
+
+        continueButton.SetActive(false);
+
         StartCoroutine(PlayTutorial());
     }
+
 
     IEnumerator PlayTutorial()
     {
@@ -53,7 +66,9 @@ public class TutorialTextManager : MonoBehaviour
         textPanel.SetActive(false);
 
         // Show continue button
+        Debug.Log("Showing Continue Button");
         continueButton.SetActive(true);
+
     }
 
     IEnumerator ShowText(string line)
@@ -129,4 +144,6 @@ public class TutorialTextManager : MonoBehaviour
     {
         Debug.Log("Strong Haptic Triggered");
     }
+    
+
 }

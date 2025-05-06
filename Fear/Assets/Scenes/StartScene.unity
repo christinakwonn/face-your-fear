@@ -683,6 +683,18 @@ PrefabInstance:
       value: 2.42
       objectReference: {fileID: 0}
     - target: {fileID: 2077890482895037023, guid: 30c45f60ff1097949b46775cab40af1d, type: 3}
+      propertyPath: m_Colors.m_DisabledColor.b
+      value: 0.42352942
+      objectReference: {fileID: 0}
+    - target: {fileID: 2077890482895037023, guid: 30c45f60ff1097949b46775cab40af1d, type: 3}
+      propertyPath: m_Colors.m_DisabledColor.g
+      value: 0.49411765
+      objectReference: {fileID: 0}
+    - target: {fileID: 2077890482895037023, guid: 30c45f60ff1097949b46775cab40af1d, type: 3}
+      propertyPath: m_Colors.m_DisabledColor.r
+      value: 0.78039217
+      objectReference: {fileID: 0}
+    - target: {fileID: 2077890482895037023, guid: 30c45f60ff1097949b46775cab40af1d, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
       value: 2
       objectReference: {fileID: 0}
@@ -735,6 +747,18 @@ PrefabInstance:
       value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     - target: {fileID: 3234357018275961586, guid: 30c45f60ff1097949b46775cab40af1d, type: 3}
+      propertyPath: m_Colors.m_DisabledColor.b
+      value: 0.42352942
+      objectReference: {fileID: 0}
+    - target: {fileID: 3234357018275961586, guid: 30c45f60ff1097949b46775cab40af1d, type: 3}
+      propertyPath: m_Colors.m_DisabledColor.g
+      value: 0.49411765
+      objectReference: {fileID: 0}
+    - target: {fileID: 3234357018275961586, guid: 30c45f60ff1097949b46775cab40af1d, type: 3}
+      propertyPath: m_Colors.m_DisabledColor.r
+      value: 0.78039217
+      objectReference: {fileID: 0}
+    - target: {fileID: 3234357018275961586, guid: 30c45f60ff1097949b46775cab40af1d, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
       value: 2
       objectReference: {fileID: 0}
@@ -761,6 +785,18 @@ PrefabInstance:
     - target: {fileID: 3234357018275961586, guid: 30c45f60ff1097949b46775cab40af1d, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 3357604433925902101, guid: 30c45f60ff1097949b46775cab40af1d, type: 3}
+      propertyPath: m_Colors.m_DisabledColor.b
+      value: 0.42352942
+      objectReference: {fileID: 0}
+    - target: {fileID: 3357604433925902101, guid: 30c45f60ff1097949b46775cab40af1d, type: 3}
+      propertyPath: m_Colors.m_DisabledColor.g
+      value: 0.49411765
+      objectReference: {fileID: 0}
+    - target: {fileID: 3357604433925902101, guid: 30c45f60ff1097949b46775cab40af1d, type: 3}
+      propertyPath: m_Colors.m_DisabledColor.r
+      value: 0.78039217
       objectReference: {fileID: 0}
     - target: {fileID: 5797891403042419832, guid: 30c45f60ff1097949b46775cab40af1d, type: 3}
       propertyPath: m_Camera
