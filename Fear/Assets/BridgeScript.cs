@@ -1,5 +1,5 @@
 using UnityEngine;
-
+using UnityEngine.SceneManagement;
 public class BridgeScript : MonoBehaviour
 {
     [SerializeField] GameObject playerObj;
@@ -20,12 +20,20 @@ public class BridgeScript : MonoBehaviour
     [SerializeField] float totalTimeToCross = 90f;
     [SerializeField] float bridgeSinkMultiplier = 2f;
 
-    [SerializeField] float bridgeSinkNum = 0f;
+    float bridgeSinkNum = 0f;
     [SerializeField] StressMeter stressMeterScript; 
     
     float defaultPlayerYLevel;
 
-    [SerializeField] float stressMeterFillMultiplier = 1;
+    [Header("Bridge will start swaying a lot more when gamma goes over this value:")]
+    [SerializeField] float bridgeSwayThreshold = 3f;
+    [Header("Stress meter will start to fill up when gamma goes over this value:")]
+    [SerializeField] float stressMeterIncreaseThreshold = 6f;
+
+    [Header("Stress meter increase speed:")]
+    [SerializeField] float stressMeterIncreaseMultiplier = 1;
+    [Header("Stress meter decrease speed:")]
+    [SerializeField] float stressMeterDecreaseMultiplier = 1;
 
 
     private void Start() {
@@ -35,6 +43,8 @@ public class BridgeScript : MonoBehaviour
         defaultPlayerYLevel = playerObj.transform.position.y;
 
         if (stressMeterScript == null) stressMeterScript = FindObjectOfType<StressMeter>();
+
+        stressMeterScript.stressLevel = 0;
     }
 
     private void Update() {
@@ -51,8 +61,7 @@ public class BridgeScript : MonoBehaviour
                 gammaValueTimer = 0;
                 currentGammaValue = gammaValueLerp;
                 gammaValueToLerpTo = Receive.gammaValue;
-                if (gammaValueToLerpTo < 3.7f) gammaValueToLerpTo = 0.5f; // 3.7 seems like a "baseline" value
-                //Debug.Log("Current sway value at: " + gammaValueToLerpTo);
+                if (gammaValueToLerpTo < bridgeSwayThreshold) gammaValueToLerpTo = 0.5f; 
             }
         }
 
@@ -68,6 +77,14 @@ public class BridgeScript : MonoBehaviour
         }
 
         timePassed += Time.deltaTime;
-        Debug.Log(stressMeterScript.stressLevel);
+
+        if (Receive.gammaValue > stressMeterIncreaseThreshold) {
+            stressMeterScript.stressLevel += stressMeterIncreaseMultiplier * Time.deltaTime;
+            if (stressMeterScript.stressLevel >= 1) SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        }
+        else if (stressMeterScript.stressLevel > 0)
+            stressMeterScript.stressLevel -= stressMeterDecreaseMultiplier * Time.deltaTime;
+        
+        Debug.Log(Receive.gammaValue);
     }
 }
