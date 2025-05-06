@@ -37,7 +37,7 @@ public class BridgeScript : MonoBehaviour
     [SerializeField] float stressMeterIncreaseMultiplier = 1;
     [Header("Stress meter decrease speed:")]
     [SerializeField] float stressMeterDecreaseMultiplier = 1;
-
+    [SerializeField] GameObject redScreenObj;
 
     private void Start() {
         centralBridgePosition = transform.position;
@@ -48,6 +48,11 @@ public class BridgeScript : MonoBehaviour
         if (stressMeterScript == null) stressMeterScript = FindObjectOfType<StressMeter>();
 
         stressMeterScript.stressLevel = 0;
+
+        if (redScreenObj == null) redScreenObj = GameObject.Find("RedScreen").transform.gameObject;
+
+        if (redScreenObj != null)
+            redScreenObj.SetActive(false);
     }
 
     private void Update() {
@@ -92,8 +97,15 @@ public class BridgeScript : MonoBehaviour
 
         if (Receive.gammaValue > stressMeterIncreaseThreshold) {
             stressMeterScript.stressLevel += stressMeterIncreaseMultiplier * Time.deltaTime;
-            if (stressMeterScript.stressLevel >= 1) SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+
+            //stress meter full, restart
+            if (stressMeterScript.stressLevel >= 1) {
+                if (redScreenObj != null)
+                    redScreenObj.SetActive(true);
+                SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+            }
         }
+
         else if (stressMeterScript.stressLevel > 0)
             stressMeterScript.stressLevel -= stressMeterDecreaseMultiplier * Time.deltaTime;
         
