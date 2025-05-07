@@ -5,6 +5,6 @@ public class ContinueButton : MonoBehaviour
 {
     public void LoadNextLevel()
     {
-        SceneManager.LoadScene("Level1"); // Replace with your scene name
+        SceneManager.LoadScene("Level1");
     }
 }

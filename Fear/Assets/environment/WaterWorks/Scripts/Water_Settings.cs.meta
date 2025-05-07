@@ -1,14 +1,5 @@
 fileFormatVersion: 2
 guid: 10f7b96a1d2bd1f4db1c1016821e87ad
-MonoImporter:
-  externalObjects: {}
-  serializedVersion: 2
-  defaultReferences: []
-  executionOrder: 0
-  icon: {instanceID: 0}
-  userData: 
-  assetBundleName: 
-  assetBundleVariant: 
 AssetOrigin:
   serializedVersion: 1
   productId: 206909
@@ -17,3 +8,13 @@ AssetOrigin:
   packageVersion: 1.0
   assetPath: Assets/WaterWorks/Scripts/Water_Settings.cs
   uploadId: 476381
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - waterVolume: {fileID: 2100000, guid: edcfc5aaa4ab59e4cb087049354cfae3, type: 2}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
