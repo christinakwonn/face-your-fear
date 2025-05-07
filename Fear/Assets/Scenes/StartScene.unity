@@ -2010,6 +2010,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 666994221}
     - target: {fileID: 6041912143461587984, guid: 30c45f60ff1097949b46775cab40af1d, type: 3}
+      propertyPath: m_text
+      value: How to Play
+      objectReference: {fileID: 0}
+    - target: {fileID: 6041912143461587984, guid: 30c45f60ff1097949b46775cab40af1d, type: 3}
       propertyPath: m_fontAsset
       value: 
       objectReference: {fileID: 11400000, guid: c0b0d3a233b054083a2a960666ea9a39, type: 2}
@@ -2022,6 +2026,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6796932811103601180, guid: 30c45f60ff1097949b46775cab40af1d, type: 3}
+      propertyPath: m_text
+      value: Exit Trial
+      objectReference: {fileID: 0}
+    - target: {fileID: 6796932811103601180, guid: 30c45f60ff1097949b46775cab40af1d, type: 3}
       propertyPath: m_fontAsset
       value: 
       objectReference: {fileID: 11400000, guid: c0b0d3a233b054083a2a960666ea9a39, type: 2}
@@ -2032,6 +2040,10 @@ PrefabInstance:
     - target: {fileID: 6796932811103601180, guid: 30c45f60ff1097949b46775cab40af1d, type: 3}
       propertyPath: m_hasFontAssetChanged
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7426836590787912190, guid: 30c45f60ff1097949b46775cab40af1d, type: 3}
+      propertyPath: m_text
+      value: Start Trial
       objectReference: {fileID: 0}
     - target: {fileID: 7426836590787912190, guid: 30c45f60ff1097949b46775cab40af1d, type: 3}
       propertyPath: m_fontAsset
@@ -2188,11 +2200,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3162802860296153415, guid: a57bbf6bae1a3ae40a16f54aec77c72e, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 455.78183
+      value: 475.4
       objectReference: {fileID: 0}
     - target: {fileID: 3162802860296153415, guid: a57bbf6bae1a3ae40a16f54aec77c72e, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 202.14561
+      value: 216.3
       objectReference: {fileID: 0}
     - target: {fileID: 3162802860296153415, guid: a57bbf6bae1a3ae40a16f54aec77c72e, type: 3}
       propertyPath: m_LocalPosition.z
@@ -2287,6 +2299,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5532564504947626735, guid: f484c129275bb164e8565108c6f7e7c6, type: 3}
+      propertyPath: waterVolume
+      value: 
+      objectReference: {fileID: 2100000, guid: edcfc5aaa4ab59e4cb087049354cfae3, type: 2}
     - target: {fileID: 8195598657807883924, guid: f484c129275bb164e8565108c6f7e7c6, type: 3}
       propertyPath: m_Name
       value: terrainGroup

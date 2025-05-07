@@ -5,10 +5,14 @@ public class ChallengeManager : MonoBehaviour
 {
     public Toggle challenge1Toggle;
     public AudioSource checkSound;
+    public GameObject nextSceneButton;
+
 
     void Start()
     {
         challenge1Toggle.isOn = false;
+        nextSceneButton.SetActive(false);
+
     }
 
     public void CompleteChallenge1()
@@ -26,6 +30,12 @@ public class ChallengeManager : MonoBehaviour
         {
             CompleteChallenge1();
         }
+
+        if (challenge1Toggle.isOn && !nextSceneButton.activeSelf)
+        {
+            nextSceneButton.SetActive(true);
+        }
     }
+
 
 }

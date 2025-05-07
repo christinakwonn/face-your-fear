@@ -470,6 +470,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6013632388104371083, guid: 6e0965b76baec374d9a8e0c82f9033cb, type: 3}
+      propertyPath: waterVolume
+      value: 
+      objectReference: {fileID: 2100000, guid: edcfc5aaa4ab59e4cb087049354cfae3, type: 2}
     - target: {fileID: 6013632388104371084, guid: 6e0965b76baec374d9a8e0c82f9033cb, type: 3}
       propertyPath: m_Name
       value: Water_Plane
@@ -782,6 +786,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 27.774
       objectReference: {fileID: 0}
+    - target: {fileID: 6013632388104371083, guid: 6e0965b76baec374d9a8e0c82f9033cb, type: 3}
+      propertyPath: waterVolume
+      value: 
+      objectReference: {fileID: 2100000, guid: edcfc5aaa4ab59e4cb087049354cfae3, type: 2}
     - target: {fileID: 6013632388104371084, guid: 6e0965b76baec374d9a8e0c82f9033cb, type: 3}
       propertyPath: m_Name
       value: Water_Plane (1)
