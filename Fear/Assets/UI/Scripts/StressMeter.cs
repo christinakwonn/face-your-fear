@@ -9,31 +9,32 @@ public class StressMeter : MonoBehaviour
 
     void Update()
     {
-        if (stressFill == null)
+        if (stressFill == null || stressOverlay == null)
         {
-            Debug.LogWarning("Stress fill Image is not assigned.");
+            Debug.LogWarning("Stress UI Images not assigned.");
             return;
         }
 
-        stressLevel = Mathf.Clamp01(Receive.gammaValue); // normalized to 0–1
-
-        // Update UI
-        stressFill.fillAmount = stressLevel;
-        stressFill.color = GetStressColor(stressLevel);
-
+        // Normalize gamma input once
         float normalizedGamma = Mathf.Clamp01(Receive.gammaValue * 1000000f);
         stressLevel = normalizedGamma;
 
-        UpdateStressOverlay(stressLevel);
+        // Update stress meter fill
+        stressFill.fillAmount = stressLevel;
+        stressFill.color = GetStressColor(stressLevel);
 
+        // Update overlay
+        UpdateStressOverlay(stressLevel);
     }
+
 
     void UpdateStressOverlay(float value)
     {
-   
+        // Green to Red
         Color color = Color.Lerp(Color.green, Color.red, value);
 
-        float alpha = Mathf.Lerp(0f, 0.6f, value); // 0–60% visible
+        // Transparent to 60% opacity
+        float alpha = Mathf.Lerp(0f, 0.6f, value);
         color.a = alpha;
 
         stressOverlay.color = color;

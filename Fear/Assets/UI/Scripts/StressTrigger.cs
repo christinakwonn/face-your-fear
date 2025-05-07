@@ -33,9 +33,8 @@ public class StressTrigger : MonoBehaviour
     [TextArea] public string stressMessage = "Your stress level is rising. Focus.";
     [TextArea] public string dangerMessage = "Danger! You're losing control!";
 
-    private bool calmTriggered = false;
-    private bool stressTriggered = false;
-    private bool dangerTriggered = false;
+    private bool isShowing = false;
+    private float lastStress = -1f; 
 
     void Start()
     {
@@ -47,28 +46,32 @@ public class StressTrigger : MonoBehaviour
     {
         if (stressMeter == null) return;
 
-        // Convert stressLevel (0–1) to 0–100 scale
         float currentStress = stressMeter.stressLevel * 100f;
 
-        if (!calmTriggered && currentStress <= calmThreshold)
-        {
-            calmTriggered = true;
+        // Only proceed if stress actually changed
+        if (Mathf.Approximately(currentStress, lastStress)) return;
+
+        // From above to calm
+        if (lastStress > calmThreshold && currentStress <= calmThreshold)
             StartCoroutine(TriggerText(calmMessage));
-        }
-        else if (!stressTriggered && currentStress > calmThreshold && currentStress <= stressThreshold)
-        {
-            stressTriggered = true;
+
+        // From outside to stress range
+        else if ((lastStress <= calmThreshold || lastStress > stressThreshold) &&
+                 (currentStress > calmThreshold && currentStress <= stressThreshold))
             StartCoroutine(TriggerText(stressMessage));
-        }
-        else if (!dangerTriggered && currentStress > dangerThreshold)
-        {
-            dangerTriggered = true;
+
+        // From below to danger
+        else if (lastStress <= dangerThreshold && currentStress > dangerThreshold)
             StartCoroutine(TriggerText(dangerMessage));
-        }
+
+        lastStress = currentStress;
     }
 
     IEnumerator TriggerText(string message)
     {
+        if (isShowing) yield break;
+        isShowing = true;
+
         tutorialText.text = message;
         textPanel.SetActive(true);
         yield return StartCoroutine(FadeCanvasGroup(textGroup, true));
@@ -79,7 +82,10 @@ public class StressTrigger : MonoBehaviour
 
         yield return StartCoroutine(FadeCanvasGroup(textGroup, false));
         textPanel.SetActive(false);
+        isShowing = false;
+
     }
+
 
     void PlayAudioForMessage(string message)
     {

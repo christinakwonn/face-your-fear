@@ -324,10 +324,22 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 572630490155134989, guid: 807075697be3742bcbe677d41270fd26, type: 3}
+      propertyPath: m_FillAmount
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 572630490155134989, guid: 807075697be3742bcbe677d41270fd26, type: 3}
+      propertyPath: m_FillMethod
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1604624914841016856, guid: 807075697be3742bcbe677d41270fd26, type: 3}
       propertyPath: nextSceneButton
       value: 
       objectReference: {fileID: 571688211}
+    - target: {fileID: 2958029229945651695, guid: 807075697be3742bcbe677d41270fd26, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4203849742021558381, guid: 807075697be3742bcbe677d41270fd26, type: 3}
       propertyPath: m_Name
       value: XR Origin (VR)
@@ -401,8 +413,24 @@ PrefabInstance:
       value: Challenge_2_Toggle
       objectReference: {fileID: 0}
     - target: {fileID: 6070773653087185069, guid: 807075697be3742bcbe677d41270fd26, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 3.37
+      objectReference: {fileID: 0}
+    - target: {fileID: 6070773653087185069, guid: 807075697be3742bcbe677d41270fd26, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 2.090253
+      objectReference: {fileID: 0}
+    - target: {fileID: 6070773653087185069, guid: 807075697be3742bcbe677d41270fd26, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1.0664556
+      objectReference: {fileID: 0}
+    - target: {fileID: 6070773653087185069, guid: 807075697be3742bcbe677d41270fd26, type: 3}
       propertyPath: m_AnchoredPosition.x
       value: -5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6070773653087185069, guid: 807075697be3742bcbe677d41270fd26, type: 3}
+      propertyPath: m_ConstrainProportionsScale
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6384786354050590429, guid: 807075697be3742bcbe677d41270fd26, type: 3}
       propertyPath: m_Text
@@ -427,6 +455,10 @@ PrefabInstance:
     - target: {fileID: 6384786354050590429, guid: 807075697be3742bcbe677d41270fd26, type: 3}
       propertyPath: m_FontData.m_FontSize
       value: 18
+      objectReference: {fileID: 0}
+    - target: {fileID: 6509504995462540332, guid: 807075697be3742bcbe677d41270fd26, type: 3}
+      propertyPath: stressLevel
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6509504995462540332, guid: 807075697be3742bcbe677d41270fd26, type: 3}
       propertyPath: stressOverlay
@@ -2304,11 +2336,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2067873190135303444, guid: c7611f80bec9bc0458a25e4c602fbe42, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -9
+      value: -4
       objectReference: {fileID: 0}
     - target: {fileID: 2067873190135303444, guid: c7611f80bec9bc0458a25e4c602fbe42, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 0
+      value: -2
       objectReference: {fileID: 0}
     - target: {fileID: 2067873190135303444, guid: c7611f80bec9bc0458a25e4c602fbe42, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
