@@ -156,7 +156,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4240749587845195744, guid: a37e378d6c3f14346a755fcc0d0d3b30, type: 3}
       propertyPath: m_Name
-      value: Start Button
+      value: Next Button
       objectReference: {fileID: 0}
     - target: {fileID: 5476650870981823516, guid: a37e378d6c3f14346a755fcc0d0d3b30, type: 3}
       propertyPath: m_Pivot.x
@@ -212,7 +212,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5476650870981823516, guid: a37e378d6c3f14346a755fcc0d0d3b30, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -45
+      value: -40
       objectReference: {fileID: 0}
     - target: {fileID: 5476650870981823516, guid: a37e378d6c3f14346a755fcc0d0d3b30, type: 3}
       propertyPath: m_LocalRotation.w
@@ -298,6 +298,11 @@ PrefabInstance:
 --- !u!224 &80799366 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 5476650870981823516, guid: a37e378d6c3f14346a755fcc0d0d3b30, type: 3}
+  m_PrefabInstance: {fileID: 80799365}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &80799367 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4240749587845195744, guid: a37e378d6c3f14346a755fcc0d0d3b30, type: 3}
   m_PrefabInstance: {fileID: 80799365}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &103309998
@@ -1002,7 +1007,7 @@ GameObject:
   - component: {fileID: 1228361458}
   - component: {fileID: 1228361459}
   m_Layer: 0
-  m_Name: Audio Source
+  m_Name: FootstepAudio
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1017,7 +1022,7 @@ Transform:
   m_GameObject: {fileID: 1228361457}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -9.49, z: 0}
+  m_LocalPosition: {x: 0, y: -12.69, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -2981,7 +2986,7 @@ PrefabInstance:
     - target: {fileID: 1604624914841016856, guid: 807075697be3742bcbe677d41270fd26, type: 3}
       propertyPath: nextSceneButton
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 80799367}
     - target: {fileID: 2958029229945651695, guid: 807075697be3742bcbe677d41270fd26, type: 3}
       propertyPath: m_LocalScale.x
       value: 1
