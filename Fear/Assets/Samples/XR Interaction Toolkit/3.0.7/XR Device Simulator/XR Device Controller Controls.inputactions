@@ -411,34 +411,6 @@
                     "isPartOfComposite": false
                 }
             ]
-        },
-        {
-            "name": "Player",
-            "id": "8b860aaf-b3dd-4e66-ae79-e2d459e12b42",
-            "actions": [
-                {
-                    "name": "ActivateChallenge",
-                    "type": "Button",
-                    "id": "4a12797b-86da-4b28-92e7-19242a8db8ad",
-                    "expectedControlType": "",
-                    "processors": "",
-                    "interactions": "",
-                    "initialStateCheck": false
-                }
-            ],
-            "bindings": [
-                {
-                    "name": "",
-                    "id": "3cae3fa3-a585-4442-a957-45112a3ae7ed",
-                    "path": "<XRController>{RightHand}/{GripButton}",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "ActivateChallenge",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                }
-            ]
         }
     ],
     "controlSchemes": []

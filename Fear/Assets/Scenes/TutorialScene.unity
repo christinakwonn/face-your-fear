@@ -1564,7 +1564,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6803edce0201f574f923fd9d10e5b30a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_InteractionManager: {fileID: 0}
+  m_InteractionManager: {fileID: 146214728}
   m_InteractionLayers:
     m_Bits: 4294967295
   m_Handedness: 1
@@ -3123,7 +3123,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 76c392e42b5098c458856cdf6ecaaaa1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_FirstSelected: {fileID: 0}
+  m_FirstSelected: {fileID: 146214727}
   m_sendNavigationEvents: 1
   m_DragThreshold: 10
 --- !u!1 &2066439545
@@ -3228,6 +3228,7 @@ GameObject:
   - component: {fileID: 2141781489}
   - component: {fileID: 2141781488}
   - component: {fileID: 2141781487}
+  - component: {fileID: 2141781490}
   m_Layer: 0
   m_Name: ButtonCanvas
   m_TagString: Untagged
@@ -3318,6 +3319,21 @@ Canvas:
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_TargetDisplay: 0
+--- !u!114 &2141781490
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2141781485}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 76c392e42b5098c458856cdf6ecaaaa1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_FirstSelected: {fileID: 146214727}
+  m_sendNavigationEvents: 1
+  m_DragThreshold: 10
 --- !u!1 &2142052818
 GameObject:
   m_ObjectHideFlags: 0
