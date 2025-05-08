@@ -16,8 +16,8 @@ public class BridgeScript : MonoBehaviour
     float gammaValueToLerpTo = 0;
     bool lerpComplete = true;
 
-    float timePassed = 0;
-    [SerializeField] float totalTimeToCross = 90f;
+    public float timePassed = 0;
+    [SerializeField] public float totalTimeToCross = 90f;
     [SerializeField] float bridgeSinkMultiplier = 2f;
 
     float bridgeSinkNum = 0f;

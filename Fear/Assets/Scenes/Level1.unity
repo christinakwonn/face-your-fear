@@ -697,6 +697,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 155157694}
     - target: {fileID: 7654337773512924082, guid: 9d97b019c996d42f89167c5e8939e2f3, type: 3}
+      propertyPath: redScreenObj
+      value: 
+      objectReference: {fileID: 5807443479756525489}
+    - target: {fileID: 7654337773512924082, guid: 9d97b019c996d42f89167c5e8939e2f3, type: 3}
       propertyPath: redFogColor.a
       value: 1
       objectReference: {fileID: 0}
@@ -800,10 +804,21 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 8871063548291533710, guid: 807075697be3742bcbe677d41270fd26, type: 3}
   m_PrefabInstance: {fileID: 5807443479756525485}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
+  m_GameObject: {fileID: 5807443479756525489}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1077363221 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6762178917648768386, guid: 807075697be3742bcbe677d41270fd26, type: 3}
+  m_PrefabInstance: {fileID: 5807443479756525485}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9085046f02f69544eb97fd06b6048fe2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!225 &1222828561 stripped
@@ -3348,12 +3363,16 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6509504995462540332, guid: 807075697be3742bcbe677d41270fd26, type: 3}
       propertyPath: stressLevel
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6509504995462540332, guid: 807075697be3742bcbe677d41270fd26, type: 3}
       propertyPath: stressOverlay
       value: 
       objectReference: {fileID: 1034421056}
+    - target: {fileID: 6762178917648768386, guid: 807075697be3742bcbe677d41270fd26, type: 3}
+      propertyPath: m_IsOn
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8871063548291533710, guid: 807075697be3742bcbe677d41270fd26, type: 3}
       propertyPath: m_Type
       value: 1
@@ -3406,7 +3425,10 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 2985967042697045412, guid: 807075697be3742bcbe677d41270fd26, type: 3}
       insertIndex: -1
       addedObject: {fileID: 869238024}
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 7929660179448236007, guid: 807075697be3742bcbe677d41270fd26, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 5807443479756525496}
   m_SourcePrefab: {fileID: 100100000, guid: 807075697be3742bcbe677d41270fd26, type: 3}
 --- !u!4 &5807443479756525486 stripped
 Transform:
@@ -3423,6 +3445,26 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 7929660179448236007, guid: 807075697be3742bcbe677d41270fd26, type: 3}
   m_PrefabInstance: {fileID: 5807443479756525485}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &5807443479756525489 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1671503489655458246, guid: 807075697be3742bcbe677d41270fd26, type: 3}
+  m_PrefabInstance: {fileID: 5807443479756525485}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &5807443479756525496
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5807443479756525488}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3d5565ad0c2614c1b949d67392953f4a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  challengeToggle: {fileID: 1077363221}
+  bananaObj: {fileID: 1331514509}
+  challengeOneComplete: 0
 --- !u!1001 &6700236041036854984
 PrefabInstance:
   m_ObjectHideFlags: 0
