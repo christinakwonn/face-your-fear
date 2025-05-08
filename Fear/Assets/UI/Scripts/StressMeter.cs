@@ -10,14 +10,21 @@ public class StressMeter : MonoBehaviour
     {
         if (stressFill == null)
         {
-            Debug.LogWarning("Stress fill Image is not assigned.");
+            Debug.LogWarning("Stress UI Images not assigned.");
             return;
         }
 
-        stressFill.fillAmount = stressLevel;
+        // Normalize gamma input once
+        //float normalizedGamma = Mathf.Clamp01(Receive.gammaValue * 1000000f);
+        //stressLevel = normalizedGamma;
 
+        // Update stress meter fill
+        stressFill.fillAmount = stressLevel;
         stressFill.color = GetStressColor(stressLevel);
+
     }
+
+
 
     Color GetStressColor(float stress)
     {

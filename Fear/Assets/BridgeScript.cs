@@ -1,15 +1,14 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
+
 public class BridgeScript : MonoBehaviour
 {
-    
     [SerializeField] GameObject playerObj;
     [SerializeField] GameObject sceneObj;
     [SerializeField] float forwardMovementMultiplier = 10;
     [SerializeField] float bridgeSwayMultiplier;
     Vector3 centralBridgePosition;
 
-    //float gammaValueTemp = 0;
     float gammaValueLerp = 0;
     float gammaValueTimer = 0;
     [SerializeField] float smoothFactor = 0.25f;
@@ -17,13 +16,13 @@ public class BridgeScript : MonoBehaviour
     float gammaValueToLerpTo = 0;
     bool lerpComplete = true;
 
-    float timePassed = 0;
-    [SerializeField] float totalTimeToCross = 90f;
+    public float timePassed = 0;
+    [SerializeField] public float totalTimeToCross = 90f;
     [SerializeField] float bridgeSinkMultiplier = 2f;
 
     float bridgeSinkNum = 0f;
-    [SerializeField] StressMeter stressMeterScript; 
-    
+    [SerializeField] StressMeter stressMeterScript;
+
     float defaultPlayerYLevel;
     float currentGammaValue = 0;
     [SerializeField] float gammaValueAtThisFrame;
@@ -33,9 +32,7 @@ public class BridgeScript : MonoBehaviour
     [Header("Stress meter will start to fill up when gamma goes over this value:")]
     [SerializeField] float stressMeterIncreaseThreshold = 6f;
 
-    [Header("Stress meter increase speed:")]
     [SerializeField] float stressMeterIncreaseMultiplier = 1;
-    [Header("Stress meter decrease speed:")]
     [SerializeField] float stressMeterDecreaseMultiplier = 1;
     [SerializeField] GameObject redScreenObj;
 
@@ -44,96 +41,120 @@ public class BridgeScript : MonoBehaviour
     [SerializeField] Color defaultFogColor;
     [SerializeField] Color redFogColor;
 
-    private void Start() {
+    private void Start()
+    {
         centralBridgePosition = transform.position;
-        currentGammaValue = gammaValueLerp;
-        gammaValueToLerpTo = Receive.gammaValue;
+        currentGammaValue = Receive.gammaValue;
+        gammaValueToLerpTo = currentGammaValue;
+
         defaultPlayerYLevel = playerObj.transform.position.y;
 
-        if (stressMeterScript == null) stressMeterScript = FindObjectOfType<StressMeter>();
+        if (stressMeterScript == null)
+            stressMeterScript = Object.FindFirstObjectByType<StressMeter>();
 
         stressMeterScript.stressLevel = 0;
-
-        if (redScreenObj == null) redScreenObj = GameObject.Find("RedScreen").transform.gameObject;
 
         if (redScreenObj != null)
             redScreenObj.SetActive(false);
 
-        if (fogParticles[0] != null) {
-            var mainModule = fogParticles[0].main;
-            defaultFogColor = mainModule.startColor.color;
-        } 
+        if (fogParticles.Length > 0 && fogParticles[0] != null)
+        {
+            var main = fogParticles[0].main;
+            defaultFogColor = main.startColor.color;
+        }
     }
 
-    private void Update() {
+    private void Update()
+    {
         gammaValueAtThisFrame = Receive.gammaValue;
 
-        if (timePassed < totalTimeToCross + 3) // stop moving once crossed 
+        // Move the scene and bridge over time
+        if (timePassed < totalTimeToCross + 3f)
         {
-            sceneObj.transform.position -= new Vector3(0, 0, forwardMovementMultiplier * Time.deltaTime);
-            centralBridgePosition -= new Vector3(0, 0, forwardMovementMultiplier * Time.deltaTime);
+            Vector3 moveDelta = new Vector3(0, 0, forwardMovementMultiplier * Time.deltaTime);
+            sceneObj.transform.position -= moveDelta;
+            centralBridgePosition -= moveDelta;
         }
 
-        // stop swaying the bridge when player is at the end
-        if (timePassed > totalTimeToCross - 5) gammaValueToLerpTo = 0;
+        // Stop gammaValue influence near the end
+        if (timePassed > totalTimeToCross - 5f)
+            gammaValueToLerpTo = 0;
 
-        if (Time.time > 2){
-            if (gammaValueLerp != gammaValueToLerpTo){
+        // Smooth gamma lerping for bridge sway
+        if (Time.time > 2f)
+        {
+            if (!Mathf.Approximately(gammaValueLerp, gammaValueToLerpTo))
+            {
                 gammaValueTimer += Time.deltaTime * smoothFactor;
                 gammaValueLerp = Mathf.Lerp(currentGammaValue, gammaValueToLerpTo, gammaValueTimer);
-                if (gammaValueTimer >= 1 * smoothFactor) lerpComplete = true;
+
+                if (gammaValueTimer >= 1f)
+                {
+                    lerpComplete = true;
+                    gammaValueTimer = 0;
+                    currentGammaValue = gammaValueLerp;
+                }
             }
-            else if (lerpComplete){
-                gammaValueTimer = 0;
-                currentGammaValue = gammaValueLerp;
+
+            if (lerpComplete)
+            {
+                lerpComplete = false;
                 gammaValueToLerpTo = Receive.gammaValue;
 
-                if (timePassed > totalTimeToCross - (totalTimeToCross / 3)){
-                    gammaValueToLerpTo /= 5; // reduce sway as player is nearing end
-                    Debug.Log("last third");
-                }
+                // Reduce sway when nearing the end of the bridge
+                if (timePassed > totalTimeToCross * 2f / 3f)
+                    gammaValueToLerpTo /= 5f;
 
-                if (gammaValueToLerpTo < bridgeSwayThreshold) gammaValueToLerpTo = 0.5f; 
+                if (gammaValueToLerpTo < bridgeSwayThreshold)
+                    gammaValueToLerpTo = 0.5f;
             }
         }
 
         float swayAmount = Mathf.Sin(Time.time) * gammaValueLerp * bridgeSwayMultiplier;
         transform.position = centralBridgePosition + new Vector3(swayAmount, 0, 0);
 
-        playerObj.transform.position = new Vector3(centralBridgePosition.x, defaultPlayerYLevel - bridgeSinkNum * bridgeSinkMultiplier, playerObj.transform.position.z) + new Vector3(swayAmount, 0, 0);
-
-        if (timePassed < totalTimeToCross / 2f){
+        // Sink bridge in middle and return it to normal
+        if (timePassed < totalTimeToCross / 2f)
             bridgeSinkNum = Mathf.Lerp(0, 1, timePassed / (totalTimeToCross / 2f));
-        }
-        else if (timePassed > totalTimeToCross / 2f){
+        else
             bridgeSinkNum = Mathf.Lerp(1, 0, (timePassed - totalTimeToCross / 2f) / (totalTimeToCross / 2f));
-        }
+
+        playerObj.transform.position = new Vector3(
+            centralBridgePosition.x,
+            defaultPlayerYLevel - bridgeSinkNum * bridgeSinkMultiplier,
+            playerObj.transform.position.z) + new Vector3(swayAmount, 0, 0);
 
         timePassed += Time.deltaTime;
 
-        if (Receive.gammaValue > stressMeterIncreaseThreshold) // stress meter functionality
+        // Stress meter logic
+        if (Receive.gammaValue > stressMeterIncreaseThreshold)
         {
             stressMeterScript.stressLevel += stressMeterIncreaseMultiplier * Time.deltaTime;
 
-            //stress meter full, restart
-            if (stressMeterScript.stressLevel >= 1) {
+            if (stressMeterScript.stressLevel >= 1f)
+            {
                 if (redScreenObj != null)
                     redScreenObj.SetActive(true);
+
                 SceneManager.LoadScene(SceneManager.GetActiveScene().name);
             }
         }
-        else if (stressMeterScript.stressLevel > 0)
-            stressMeterScript.stressLevel -= stressMeterDecreaseMultiplier * Time.deltaTime;
-
-        if (fogParticles[0] != null) // lerps fog color from white to red based on stress meter %
+        else
         {
-            var mainModule = fogParticles[0].main;
-            mainModule.startColor = Color.Lerp(defaultFogColor, redFogColor, stressMeterScript.stressLevel);
-
-            var mainModule2 = fogParticles[1].main;
-            mainModule2.startColor = Color.Lerp(defaultFogColor, redFogColor, stressMeterScript.stressLevel);
+            stressMeterScript.stressLevel = Mathf.Max(0, stressMeterScript.stressLevel - stressMeterDecreaseMultiplier * Time.deltaTime);
         }
-        
+
+        // Fog color based on stress
+        if (fogParticles.Length >= 2 && fogParticles[0] != null && fogParticles[1] != null)
+        {
+            var main1 = fogParticles[0].main;
+            var main2 = fogParticles[1].main;
+
+            Color lerpedColor = Color.Lerp(defaultFogColor, redFogColor, stressMeterScript.stressLevel);
+            main1.startColor = lerpedColor;
+            main2.startColor = lerpedColor;
+        }
+
         Debug.Log("Gamma: " + Receive.gammaValue);
     }
 }
