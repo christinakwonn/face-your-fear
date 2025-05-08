@@ -1128,7 +1128,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3548423249803939825, guid: a57bbf6bae1a3ae40a16f54aec77c72e, type: 3}
       propertyPath: m_Volume
-      value: 0.72
+      value: 0.63
       objectReference: {fileID: 0}
     - target: {fileID: 3548423249803939825, guid: a57bbf6bae1a3ae40a16f54aec77c72e, type: 3}
       propertyPath: m_Resource
@@ -1143,7 +1143,8 @@ PrefabInstance:
       value: Audio
       objectReference: {fileID: 0}
     m_RemovedComponents: []
-    m_RemovedGameObjects: []
+    m_RemovedGameObjects:
+    - {fileID: 8371045025853128304, guid: a57bbf6bae1a3ae40a16f54aec77c72e, type: 3}
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a57bbf6bae1a3ae40a16f54aec77c72e, type: 3}
