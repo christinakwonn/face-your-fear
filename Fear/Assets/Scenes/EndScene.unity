@@ -1124,6 +1124,7 @@ GameObject:
   - component: {fileID: 89105678}
   - component: {fileID: 89105677}
   - component: {fileID: 89105676}
+  - component: {fileID: 936399316}
   m_Layer: 0
   m_Name: XR Origin (VR)
   m_TagString: Untagged
@@ -1131,6 +1132,19 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!114 &936399316
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 936399315}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 87954e4fc7fcf4e3b9c52327a634f81d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  canvasObj: {fileID: 901478839}
 --- !u!1001 &1020119974
 PrefabInstance:
   m_ObjectHideFlags: 0
