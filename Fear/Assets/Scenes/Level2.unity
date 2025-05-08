@@ -351,6 +351,10 @@ PrefabInstance:
       propertyPath: m_LocalScale.x
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 3107868025336731972, guid: 807075697be3742bcbe677d41270fd26, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 135
+      objectReference: {fileID: 0}
     - target: {fileID: 4203849742021558381, guid: 807075697be3742bcbe677d41270fd26, type: 3}
       propertyPath: m_Name
       value: XR Origin (VR)
@@ -1835,6 +1839,10 @@ PrefabInstance:
     - target: {fileID: 239189077679300672, guid: 414edd3597ca3504e9f904cd9163b72c, type: 3}
       propertyPath: m_Name
       value: BridgeSway
+      objectReference: {fileID: 0}
+    - target: {fileID: 347159269832065854, guid: 414edd3597ca3504e9f904cd9163b72c, type: 3}
+      propertyPath: m_Volume
+      value: 0.86
       objectReference: {fileID: 0}
     - target: {fileID: 3047525001006966727, guid: 414edd3597ca3504e9f904cd9163b72c, type: 3}
       propertyPath: m_LocalPosition.x
