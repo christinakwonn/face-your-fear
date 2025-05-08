@@ -15,15 +15,14 @@ public class StressMeter : MonoBehaviour
         }
 
         // Normalize gamma input once
-        float normalizedGamma = Mathf.Clamp01(Receive.gammaValue * 1000000f);
-        stressLevel = normalizedGamma;
+        //float normalizedGamma = Mathf.Clamp01(Receive.gammaValue * 1000000f);
+        //stressLevel = normalizedGamma;
 
         // Update stress meter fill
         stressFill.fillAmount = stressLevel;
         stressFill.color = GetStressColor(stressLevel);
 
     }
-
 
 
 
