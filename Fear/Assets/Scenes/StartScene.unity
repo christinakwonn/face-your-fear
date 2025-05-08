@@ -2243,6 +2243,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 165925459525308846, guid: a57bbf6bae1a3ae40a16f54aec77c72e, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 34.65
+      objectReference: {fileID: 0}
+    - target: {fileID: 165925459525308846, guid: a57bbf6bae1a3ae40a16f54aec77c72e, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -175.2
+      objectReference: {fileID: 0}
     - target: {fileID: 1303367072382950713, guid: a57bbf6bae1a3ae40a16f54aec77c72e, type: 3}
       propertyPath: m_Volume
       value: 0.8
@@ -2300,7 +2308,8 @@ PrefabInstance:
       value: Audio
       objectReference: {fileID: 0}
     m_RemovedComponents: []
-    m_RemovedGameObjects: []
+    m_RemovedGameObjects:
+    - {fileID: 8371045025853128304, guid: a57bbf6bae1a3ae40a16f54aec77c72e, type: 3}
     m_AddedGameObjects:
     - targetCorrespondingSourceObject: {fileID: 3162802860296153415, guid: a57bbf6bae1a3ae40a16f54aec77c72e, type: 3}
       insertIndex: -1
@@ -2318,6 +2327,10 @@ PrefabInstance:
     - target: {fileID: 239189077679300672, guid: 414edd3597ca3504e9f904cd9163b72c, type: 3}
       propertyPath: m_Name
       value: BridgeSway
+      objectReference: {fileID: 0}
+    - target: {fileID: 347159269832065854, guid: 414edd3597ca3504e9f904cd9163b72c, type: 3}
+      propertyPath: m_Volume
+      value: 0.867
       objectReference: {fileID: 0}
     - target: {fileID: 3047525001006966727, guid: 414edd3597ca3504e9f904cd9163b72c, type: 3}
       propertyPath: m_LocalPosition.x

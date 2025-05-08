@@ -1765,6 +1765,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: BridgeSway
       objectReference: {fileID: 0}
+    - target: {fileID: 347159269832065854, guid: 414edd3597ca3504e9f904cd9163b72c, type: 3}
+      propertyPath: m_Volume
+      value: 0.864
+      objectReference: {fileID: 0}
     - target: {fileID: 3047525001006966727, guid: 414edd3597ca3504e9f904cd9163b72c, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -2924,7 +2928,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3107868025336731972, guid: 807075697be3742bcbe677d41270fd26, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -283
+      value: -344
       objectReference: {fileID: 0}
     - target: {fileID: 3107868025336731972, guid: 807075697be3742bcbe677d41270fd26, type: 3}
       propertyPath: m_AnchoredPosition.y
