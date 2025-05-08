@@ -351,10 +351,6 @@ PrefabInstance:
       propertyPath: m_LocalScale.x
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 3107868025336731972, guid: 807075697be3742bcbe677d41270fd26, type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: 131
-      objectReference: {fileID: 0}
     - target: {fileID: 4203849742021558381, guid: 807075697be3742bcbe677d41270fd26, type: 3}
       propertyPath: m_Name
       value: XR Origin (VR)
@@ -2677,4 +2673,3 @@ SceneRoots:
   - {fileID: 1265765951}
   - {fileID: 1158709147}
   - {fileID: 101604051}
-  - {fileID: 709895859}

@@ -1,0 +1,62 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &2193608058168123111
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7126467661946028429}
+  - component: {fileID: 2407301356916551096}
+  m_Layer: 0
+  m_Name: StressTrigger
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &7126467661946028429
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2193608058168123111}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 488.23566, y: 371.9138, z: 325.2991}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2407301356916551096
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2193608058168123111}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5d77efc4a9104954488234f5b8621979, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  textPanel: {fileID: 0}
+  textGroup: {fileID: 0}
+  tutorialText: {fileID: 0}
+  fadeDuration: 1
+  displayDuration: 4
+  audioSource: {fileID: 0}
+  calmSound: {fileID: 8300000, guid: 74ec83afdcee7244393e625ee0f1b850, type: 3}
+  stressSound: {fileID: 8300000, guid: 2e5b1606f26ce3945b1f37404d2096b8, type: 3}
+  dangerSound: {fileID: 8300000, guid: a62342874ab963643a804b19107b9c54, type: 3}
+  calmThreshold: 20
+  stressThreshold: 50
+  dangerThreshold: 80
+  stressMeter: {fileID: 0}
+  calmMessage: Take a deep breath. You are calm.
+  stressMessage: Your stress level is rising. Focus.
+  dangerMessage: Danger! You're losing control!
