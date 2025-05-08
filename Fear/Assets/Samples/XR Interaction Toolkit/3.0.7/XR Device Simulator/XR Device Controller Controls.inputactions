@@ -27,7 +27,7 @@
                     "name": "Grip",
                     "type": "Button",
                     "id": "c7937c78-cea4-4888-8feb-8d9da13005f2",
-                    "expectedControlType": "Button",
+                    "expectedControlType": "",
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
@@ -45,7 +45,7 @@
                     "name": "Primary Button",
                     "type": "Button",
                     "id": "54068f2e-4569-46ab-9864-63b23fb9c26a",
-                    "expectedControlType": "Button",
+                    "expectedControlType": "",
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
@@ -81,7 +81,7 @@
                     "name": "Secondary 2D Axis Click",
                     "type": "Button",
                     "id": "b3a541b3-564a-4213-8a9a-a4417b3de5cf",
-                    "expectedControlType": "Button",
+                    "expectedControlType": "",
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
@@ -117,7 +117,7 @@
                     "name": "Secondary Touch",
                     "type": "Button",
                     "id": "613de0bf-5bc1-4b53-a4b8-0ae20fb87272",
-                    "expectedControlType": "Button",
+                    "expectedControlType": "",
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
@@ -407,6 +407,34 @@
                     "processors": "",
                     "groups": "",
                     "action": "Secondary Touch",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
+        },
+        {
+            "name": "Player",
+            "id": "8b860aaf-b3dd-4e66-ae79-e2d459e12b42",
+            "actions": [
+                {
+                    "name": "ActivateChallenge",
+                    "type": "Button",
+                    "id": "4a12797b-86da-4b28-92e7-19242a8db8ad",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "3cae3fa3-a585-4442-a957-45112a3ae7ed",
+                    "path": "<XRController>{RightHand}/{GripButton}",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "ActivateChallenge",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
