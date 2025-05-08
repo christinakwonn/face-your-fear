@@ -697,6 +697,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 155157694}
     - target: {fileID: 7654337773512924082, guid: 9d97b019c996d42f89167c5e8939e2f3, type: 3}
+      propertyPath: redScreenObj
+      value: 
+      objectReference: {fileID: 1144804597}
+    - target: {fileID: 7654337773512924082, guid: 9d97b019c996d42f89167c5e8939e2f3, type: 3}
       propertyPath: redFogColor.a
       value: 1
       objectReference: {fileID: 0}
@@ -800,12 +804,17 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 8871063548291533710, guid: 807075697be3742bcbe677d41270fd26, type: 3}
   m_PrefabInstance: {fileID: 5807443479756525485}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
+  m_GameObject: {fileID: 1144804597}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &1144804597 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1671503489655458246, guid: 807075697be3742bcbe677d41270fd26, type: 3}
+  m_PrefabInstance: {fileID: 5807443479756525485}
+  m_PrefabAsset: {fileID: 0}
 --- !u!225 &1222828561 stripped
 CanvasGroup:
   m_CorrespondingSourceObject: {fileID: 6392006200727512043, guid: fe9ae721d81b2db44bc298e228d64afc, type: 3}
@@ -3368,11 +3377,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8871063548291533710, guid: 807075697be3742bcbe677d41270fd26, type: 3}
       propertyPath: m_Color.b
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8871063548291533710, guid: 807075697be3742bcbe677d41270fd26, type: 3}
       propertyPath: m_Color.g
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8871063548291533710, guid: 807075697be3742bcbe677d41270fd26, type: 3}
       propertyPath: m_Color.r

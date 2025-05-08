@@ -502,7 +502,7 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 8871063548291533710, guid: 807075697be3742bcbe677d41270fd26, type: 3}
   m_PrefabInstance: {fileID: 222844645}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
+  m_GameObject: {fileID: 583355765}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
@@ -1797,6 +1797,11 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 5326601182293184866, guid: c7611f80bec9bc0458a25e4c602fbe42, type: 3}
   m_PrefabInstance: {fileID: 1876153499}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &583355765 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1671503489655458246, guid: 807075697be3742bcbe677d41270fd26, type: 3}
+  m_PrefabInstance: {fileID: 222844645}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &702820598
 GameObject:
   m_ObjectHideFlags: 0
@@ -2121,6 +2126,10 @@ PrefabInstance:
       propertyPath: playerObj
       value: 
       objectReference: {fileID: 222844646}
+    - target: {fileID: 7654337773512924082, guid: 9d97b019c996d42f89167c5e8939e2f3, type: 3}
+      propertyPath: redScreenObj
+      value: 
+      objectReference: {fileID: 583355765}
     - target: {fileID: 7654337773512924082, guid: 9d97b019c996d42f89167c5e8939e2f3, type: 3}
       propertyPath: 'fogParticles.Array.data[0]'
       value: 

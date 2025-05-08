@@ -5,11 +5,10 @@ public class StressMeter : MonoBehaviour
 {
     [Range(0, 1)] public float stressLevel = 0f;
     public Image stressFill;
-    public Image stressOverlay;
 
     void Update()
     {
-        if (stressFill == null || stressOverlay == null)
+        if (stressFill == null)
         {
             Debug.LogWarning("Stress UI Images not assigned.");
             return;
@@ -23,22 +22,9 @@ public class StressMeter : MonoBehaviour
         stressFill.fillAmount = stressLevel;
         stressFill.color = GetStressColor(stressLevel);
 
-        // Update overlay
-        UpdateStressOverlay(stressLevel);
     }
 
 
-    void UpdateStressOverlay(float value)
-    {
-        // Green to Red
-        Color color = Color.Lerp(Color.green, Color.red, value);
-
-        // Transparent to 60% opacity
-        float alpha = Mathf.Lerp(0f, 0.6f, value);
-        color.a = alpha;
-
-        stressOverlay.color = color;
-    }
 
 
     Color GetStressColor(float stress)
